@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "keymaster"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Connects any Rack-compatible app to a Hot Ink-style single sign on server."
+    gem.description = "Connects any Rack-compatible app to a Hot Ink-style single sign on server."
     gem.email = "chrisgdinn@gmail.com"
     gem.homepage = "http://github.com/chrisdinn/keymaster"
     gem.authors = ["Chris Dinn"]
