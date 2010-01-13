@@ -5,7 +5,7 @@ SSO_URL = "http://ssourl.local/sso"
 class TestApp < Sinatra::Base
   enable :sessions
   
-  use Gatekeeper::Client::Middleware do |sso|
+  use Gatekeeper::Middleware do |sso|
     sso.sso_url = SSO_URL
   end
   
