@@ -1,9 +1,38 @@
 = Gatekeeper
 
 Gatekeeper can connect any Rack-compatible application to a Hot Ink SSO server. It allows you to easily verify the identity of a user against Hot Ink's
-user information database. It makes some basic information about the user available to you application.
+user information database. It makes some basic information about the user available to your application.
 
 Gatekeeper is largely a rewrite of Hancock-Client (http://github.com/atmos/hancock-client). The functionality is different but the spirit is the same.
+
+== Using Gatekeeper
+
+Gatekeeper is implemented in Sinatra, but it can authenticate any Rack-based application. That could be Rails, Sinatra, Rack whatever. You'll be 
+surprised how easy it is.
+
+Simply add the following into your Rack stack, by simply placing it directly into your Sinatra app as middleware, or if you're building a Rack app,
+add it to your stack in [\+config.ru+]:
+
+ use Gatekeeper::Middleware do |sso|
+   sso.sso_url = "http://your_sso_server.net/sso"
+ end
+
+Be sure to include the correct SSO server URL.
+
+=== With Rails
+
+When using Gatekeeper with Rails, you should create a 'metal' Sinatra app to keep it in, then implement it as show above. It's pretty easy, just 
+run [\+script/generate metal sso+]. Inside, include:
+
+	require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
+	require 'sinatra/base'
+	require 'logger'
+
+	class Sso < Sinatra::Base
+	  use Gatekeeper::Middleware do |sso|
+	    sso.sso_url = "http://your_sso_server.net/sso"
+	  end
+	end
 
 == Note on Patches/Pull Requests
  
