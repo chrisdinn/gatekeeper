@@ -42,8 +42,8 @@ run +script/generate metal sso+. Inside, you should have:
 
 === In your app
 
-Gatekeeper puts the received user details in a hash accessible using +session[:sso]+. Things are a little more convenient using the helpers. To do
-that, simply include +Gatekeeper::Helpers::Authentication+ in your app. You can then use the following methods:
+Gatekeeper puts the received user details in a hash accessible using session[:sso]. Things are a little more convenient using the helpers. To do
+that, simply include Gatekeeper::Helpers::Authentication in your app. You can then use the following methods:
 
 * current_user
 
