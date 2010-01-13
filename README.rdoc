@@ -17,20 +17,20 @@ Gatekeeper is implemented in Sinatra, but it can authenticate any Rack-based app
 surprised how easy it is.
 
 Simply add the following into your Rack stack, by simply placing it directly into your Sinatra app as middleware, or if you're building a Rack app,
-add it to your stack in [+config.ru+]:
+add it to your stack in <tt>config.ru</tt>:
 
  use Rack::Session::Cookie
  use Gatekeeper::Middleware do |sso|
    sso.sso_url = "http://your_sso_server.net/sso"
  end
 
-Be sure to use the session middleware when building a Rack app, or to [+enable :sessions+] when using Sinatra as Gatekeeper relies on sessions
+Be sure to use the session middleware when building a Rack app, or to <tt>enable :sessions</tt> when using Sinatra. Gatekeeper relies on sessions
 to store authentication information. Also be sure to include the correct SSO server URL.
 
 === With Rails
 
 When using Gatekeeper with Rails, you should create a 'metal' Sinatra app to keep it in, then implement it as show above. It's pretty easy, just 
-run [+script/generate metal sso+]. Inside, you should have:
+run <tt>script/generate metal sso</tt>. Inside, you should have:
 
  require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
  require 'sinatra/base'
@@ -42,7 +42,7 @@ run [+script/generate metal sso+]. Inside, you should have:
    end
  end
 
-When using Rails, you should be sure *not* to [+enable sessions+] in your Sinatra metal. Rails takes care of the session. If you re-enable, you'll overwrite what Rails
+When using Rails, you should be sure *not* to <tt>enable sessions</tt> in your Sinatra metal. Rails takes care of the session. If you re-enable, you'll overwrite what Rails
 has already found and your authentication will not work 
 
 === In your app
