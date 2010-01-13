@@ -5,13 +5,19 @@ user information database. It makes some basic information about the user availa
 
 Gatekeeper is largely a rewrite of Hancock-Client (http://github.com/atmos/hancock-client). The functionality is different but the spirit is the same.
 
+== Installation
+
+This is the easy part.
+
+ gem install gatekeeper --source http://gemcutter.org
+
 == Using Gatekeeper
 
 Gatekeeper is implemented in Sinatra, but it can authenticate any Rack-based application. That could be Rails, Sinatra, Rack whatever. You'll be 
 surprised how easy it is.
 
 Simply add the following into your Rack stack, by simply placing it directly into your Sinatra app as middleware, or if you're building a Rack app,
-add it to your stack in [\+config.ru+]:
+add it to your stack in [+config.ru+]:
 
  use Gatekeeper::Middleware do |sso|
    sso.sso_url = "http://your_sso_server.net/sso"
@@ -22,17 +28,36 @@ Be sure to include the correct SSO server URL.
 === With Rails
 
 When using Gatekeeper with Rails, you should create a 'metal' Sinatra app to keep it in, then implement it as show above. It's pretty easy, just 
-run [\+script/generate metal sso+]. Inside, include:
+run [+script/generate metal sso+]. Inside, you should have:
 
-	require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
-	require 'sinatra/base'
-	require 'logger'
+ require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
+ require 'sinatra/base'
+ require 'logger'
 
-	class Sso < Sinatra::Base
-	  use Gatekeeper::Middleware do |sso|
-	    sso.sso_url = "http://your_sso_server.net/sso"
-	  end
-	end
+ class Sso < Sinatra::Base
+   use Gatekeeper::Middleware do |sso|
+     sso.sso_url = "http://your_sso_server.net/sso"
+   end
+ end
+
+=== In your app
+
+Gatekeeper puts the received user details in a hash accessible using [+session[:sso]+]. Things are a little more convenient using the helpers. To do
+that, simply include [+Gatekeeper::Helpers::Authentication+] in your app. You can then use the following methods:
+
+	[current_user]	Will return [+nil+] or the current user's id, depending on whether or not the user is logged in.
+	[is_admin?]		Is this user a Hot Ink admin? You may have some tasks that only admin users can do.
+	[is_manager_of?(hotink_account_id)]		Will return true if the user is a manager of the account who's id you passed in.
+	
+Your app can use a simple [+require_user+] method as a before filter to ensure that users are logged in, the most basic of which could look like this:
+
+ def require_user
+  unless current_user
+    redirect_to "/sso/login?return_to=#{request.request_uri}"
+    false # if you're using this as a Rails before filter, return false 
+  end
+ end
+
 
 == Note on Patches/Pull Requests
  
