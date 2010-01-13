@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "gatekeeper.gemspec",
      "lib/gatekeeper.rb",
+     "lib/gatekeeper/helpers/authentication.rb",
      "lib/gatekeeper/helpers/rack.rb",
      "lib/gatekeeper/middleware.rb",
      "lib/gatekeeper/sso.rb",
