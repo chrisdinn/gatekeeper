@@ -1,4 +1,4 @@
-module Keymaster
+module Gatekeeper
   module Client
     module Helpers
       module Rack

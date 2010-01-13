@@ -4,11 +4,11 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "keymaster"
+    gem.name = "gatekeeper"
     gem.summary = "Connects any Rack-compatible app to a Hot Ink single sign on server."
     gem.description = "Connects any Rack-compatible app to a Hot Ink single sign on server."
     gem.email = "chrisgdinn@gmail.com"
-    gem.homepage = "http://github.com/chrisdinn/keymaster"
+    gem.homepage = "http://github.com/chrisdinn/gatekeeper"
     gem.authors = ["Chris Dinn"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
@@ -39,7 +39,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "keymaster #{version}"
+  rdoc.title = "gatekeeper #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

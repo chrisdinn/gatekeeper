@@ -5,7 +5,7 @@ SSO_URL = "http://ssourl.local/sso"
 class TestApp < Sinatra::Base
   enable :sessions
   
-  use Keymaster::Client::Middleware do |sso|
+  use Gatekeeper::Client::Middleware do |sso|
     sso.sso_url = SSO_URL
   end
   
@@ -14,7 +14,7 @@ class TestApp < Sinatra::Base
   end
 end
   
-describe "Keymaster" do
+describe "Gatekeeper" do
   include Rack::Test::Methods    
   
   def app

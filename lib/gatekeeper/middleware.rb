@@ -1,4 +1,4 @@
-module Keymaster
+module Gatekeeper
   module Client
     class Middleware < Sinatra::Base
       enable :raise_errors
@@ -11,7 +11,7 @@ module Keymaster
         options.sso_url = url
       end
       
-      register ::Keymaster::Client::SSO
+      register ::Gatekeeper::Client::SSO
     end
   end
 end

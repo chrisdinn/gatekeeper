@@ -1,9 +1,9 @@
-= Keymaster
+= Gatekeeper
 
-Keymaster can connect any Rack-compatible application to a Hot Ink SSO server. It allows you to easily verify the identity of a user against Hot Ink's
+Gatekeeper can connect any Rack-compatible application to a Hot Ink SSO server. It allows you to easily verify the identity of a user against Hot Ink's
 user information database. It makes some basic information about the user available to you application.
 
-Keymaster is largely a rewrite of Hancock-Client (http://github.com/atmos/hancock-client). The functionality is different but the spirit is the same.
+Gatekeeper is largely a rewrite of Hancock-Client (http://github.com/atmos/hancock-client). The functionality is different but the spirit is the same.
 
 == Note on Patches/Pull Requests
  

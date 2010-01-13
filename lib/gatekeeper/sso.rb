@@ -1,9 +1,9 @@
-module Keymaster
+module Gatekeeper
   module Client
     module SSO
       def self.registered(app)
         app.use(Rack::OpenID, OpenID::Store::Filesystem.new("#{Dir.tmpdir}/openid"))
-        app.helpers Keymaster::Client::Helpers::Rack
+        app.helpers Gatekeeper::Client::Helpers::Rack
 
         app.get '/sso/login' do
           if contact_id = params['id']

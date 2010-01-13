@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{keymaster}
+  s.name = %q{gatekeeper}
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -24,21 +24,16 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "keymaster.gemspec",
-     "lib/keymaster.rb",
-     "lib/keymaster/helpers/rack.rb",
-     "lib/keymaster/middleware.rb",
-     "lib/keymaster/sso.rb",
-     "spec/keymaster_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/chrisdinn/keymaster}
+  s.homepage = %q{http://github.com/chrisdinn/gatekeeper}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Connects any Rack-compatible app to a Hot Ink single sign on server.}
   s.test_files = [
-    "spec/keymaster_spec.rb",
+    "spec/gatekeeper_spec.rb",
      "spec/spec_helper.rb"
   ]
 
