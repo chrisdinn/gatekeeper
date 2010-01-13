@@ -23,7 +23,12 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "keymaster.gemspec",
+     "gatekeeper.gemspec",
+     "lib/gatekeeper.rb",
+     "lib/gatekeeper/helpers/rack.rb",
+     "lib/gatekeeper/middleware.rb",
+     "lib/gatekeeper/sso.rb",
+     "spec/gatekeeper_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
