@@ -5,14 +5,6 @@ module Keymaster
         app.use(Rack::OpenID, OpenID::Store::Filesystem.new("#{Dir.tmpdir}/openid"))
         app.helpers Keymaster::Client::Helpers::Rack
 
-        #app.before do 
-        #  next if request.path_info == '/sso/login'
-        #  next if request.path_info == '/sso/logout'
-        #  next if excluded_path?
-        #  next if sso_logged_in?
-        #  throw(:halt, [302, {'Location' => '/sso/login'}, ''])
-        #end
-
         app.get '/sso/login' do
           if contact_id = params['id']
             response['WWW-Authenticate'] = Rack::OpenID.build_header(

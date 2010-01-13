@@ -10,10 +10,6 @@ module Keymaster
       def sso_url=(url)
         options.sso_url = url
       end
-
-      def exclude_paths=(paths)
-        options.exclude_paths = paths
-      end
       
       register ::Keymaster::Client::SSO
     end
