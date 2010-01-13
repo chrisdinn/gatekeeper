@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{keymaster}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Dinn"]
   s.date = %q{2010-01-12}
-  s.description = %q{Connects any Rack-compatible app to a Hot Ink-style single sign on server.}
+  s.description = %q{Connects any Rack-compatible app to a Hot Ink single sign on server.}
   s.email = %q{chrisgdinn@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "keymaster.gemspec",
      "lib/keymaster.rb",
      "lib/keymaster/helpers/rack.rb",
      "lib/keymaster/middleware.rb",
@@ -35,7 +36,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Connects any Rack-compatible app to a Hot Ink-style single sign on server.}
+  s.summary = %q{Connects any Rack-compatible app to a Hot Ink single sign on server.}
   s.test_files = [
     "spec/keymaster_spec.rb",
      "spec/spec_helper.rb"
