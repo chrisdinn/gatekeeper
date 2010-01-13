@@ -43,11 +43,14 @@ run +script/generate metal sso+. Inside, you should have:
 === In your app
 
 Gatekeeper puts the received user details in a hash accessible using +session[:sso]+. Things are a little more convenient using the helpers. To do
-that, simply include [+Gatekeeper::Helpers::Authentication+] in your app. You can then use the following methods:
+that, simply include +Gatekeeper::Helpers::Authentication+ in your app. You can then use the following methods:
 
-	[current_user]	Will return [+nil+] or the current user's id, depending on whether or not the user is logged in.
-	[is_admin?]		Is this user a Hot Ink admin? You may have some tasks that only admin users can do.
-	[is_manager_of?(hotink_account_id)]		Will return true if the user is a manager of the account who's id you passed in.
+* +current_user+
+  Will return [+nil+] or the current user's id, depending on whether or not the user is logged in.
+* +is_admin?+
+  Is this user a Hot Ink admin? You may have some tasks that only admin users can do.
+* +is_manager_of?(hotink_account_id)+
+  Will return true if the user is a manager of the account who's id you passed in.
 	
 Your app can use a simple +require_user+ method as a before filter to ensure that users are logged in, the most basic of which could look like this:
 
