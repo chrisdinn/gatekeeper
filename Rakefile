@@ -10,6 +10,9 @@ begin
     gem.email = "chrisgdinn@gmail.com"
     gem.homepage = "http://github.com/chrisdinn/gatekeeper"
     gem.authors = ["Chris Dinn"]
+    gem.add_dependency 'ruby-openid', '>= 2.1.7'
+    gem.add_dependency 'rack-openid', '>= 0.2.1'
+    gem.add_dependency 'sinatra', '>= 0.9.2'
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
