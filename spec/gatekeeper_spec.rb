@@ -53,7 +53,7 @@ describe "Gatekeeper" do
       get '/sso/login', {}, 'rack.openid.response' => checkid_response
       
       last_response.should be_redirect
-      last_response.headers['Location'].should == "/"
+      last_response.headers['Location'].should == "/"    
     end
     
   end

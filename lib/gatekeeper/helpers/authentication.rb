@@ -1,10 +1,10 @@
 module Gatekeeper
   module Helpers
     module Authentication
-      def current_user
-        session[:sso] && session[:sso][:user_id]
+      def current_user?
+        session[:sso] && !session[:sso][:user_id].nil?
       end
-
+      
       def is_admin?
         (session[:sso][:is_admin?]=='true')
       end
