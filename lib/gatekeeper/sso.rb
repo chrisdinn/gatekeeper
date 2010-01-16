@@ -22,7 +22,7 @@ module Gatekeeper
                   return_url = URI.parse(session['sso_return_to'])
                   
                   unless return_url.host==request.host
-                    user_token = UserToken.create!(:user_id => sso_user_id)
+                    user_token = UserToken.create!(:user_id => sso_user_id, :email => sso_user_email)
                     if return_url.query==nil
                       return_url.query = "user_token=#{user_token.token}"
                     else
