@@ -19,7 +19,9 @@ module Gatekeeper
               
               if session['sso_return_to']
                 begin
-                  return_url = URI.parse(session['sso_return_to'])
+                  session_url = session['sso_return_to']
+                  session['sso_return_to'] = nil
+                  return_url = URI.parse(session_url)
                   
                   unless return_url.host==request.host
                     user_token = UserToken.create!(:user_id => sso_user_id, :email => sso_user_email)
@@ -29,12 +31,9 @@ module Gatekeeper
                       return_url.query = "user_token=#{user_token.token}&#{return_url.query}"
                     end
                   end
-                  
                   redirect return_url.to_s   
                 rescue
                   redirect '/'
-                ensure
-                  session['sso_return_to'] = nil
                 end
               else
                 redirect '/'
